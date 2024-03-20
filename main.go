@@ -3,49 +3,37 @@ package main
 import "fmt"
 
 func main(){
-	fmt.Println("Hello!")
 
-	// strings ----------------------------------------------------------------
-	var nameOne string = "mario"
-	var nameTwo = "luigi"
-	var nameThree string // this has an empty string
+	age := 25
+	name := "ayesha"
+	
 
-	fmt.Println(nameOne, nameTwo, nameThree)
+	// Print
+	// fmt.Print("hello, \n")
+	// fmt.Print("world!")
 
-	nameOne = "peach"
-	nameThree = "bowser"
+	//Println
+	// fmt.Println("my age is", age, "my name is", name)
 
-	fmt.Println(nameOne, nameTwo, nameThree)
+	//Printf
+	fmt.Printf("my age is %v and my name is %v \n", age, name)
+	fmt.Printf("my age is %q and my name is %q \n", age, name)
+	fmt.Printf("age type is: %T \n", age)
+	fmt.Printf("you scored %f points! \n", 225.55)
+	fmt.Printf("you scored %0.1f points! \n", 225.55)
 
-	nameFour := "yoshi" 
-	// this is a short hand of initializing a variable and you can use it only in the very first time.
-	// you can't use this way, outside a function
-
-	fmt.Println(nameFour)
-
-
-
+	// %_   >>  this underscore will be different specifiers
+	// %v  		default format of variable
+	// %q  		put quotes around the table. this is only works for strings.
+	// %T  		data type of variable
+	// %f   	print floating numbers
+	// %0.1f  	limit the decimal points to one value 
 
 
+	// Sprintf  >> save the formatted string to a new variable
+	var str = fmt.Sprintf("my age is %v and my name is %v \n", age, name)
+	fmt.Println("The formatted string is: ", str)
 
-	// ints ----------------------------------------------------------------	
-	var ageOne int = 20
-	var ageTwo = 30
-	ageThree := 40
 
-	fmt.Println(ageOne, ageTwo, ageThree)
-
-	// bits and memory
-	var numOne int8 = 25
-	var numTwo int8 = -128
-	var numThree uint16 = 256
-
-	fmt.Println(numOne, numTwo, numThree)
-
-	var scoreOne float32 = 25.45
-	var scoreTwo float64 = 2444444444444444444444444444444445.458777777
-	scoreThree := 1.5
-
-	fmt.Println(scoreOne, scoreTwo, scoreThree)
 
 }
