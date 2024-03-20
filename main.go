@@ -2,50 +2,36 @@ package main
 
 import "fmt"
 
-func main(){
-	fmt.Println("Hello!")
+func main() {
 
-	// strings ----------------------------------------------------------------
-	var nameOne string = "mario"
-	var nameTwo = "luigi"
-	var nameThree string // this has an empty string
+	var ages [3]int = [3]int{20, 25, 30}
+	var scoress = [3]int{10, 45, 80}
+	// arrays have fixed legth
 
-	fmt.Println(nameOne, nameTwo, nameThree)
+	names := [4]string{"yoshi", "mario", "peach", "bowser"}
+	names[1] = "ayesha"
 
-	nameOne = "peach"
-	nameThree = "bowser"
+	fmt.Println(ages, len(ages), scoress)
+	fmt.Println(len(names), names)
 
-	fmt.Println(nameOne, nameTwo, nameThree)
+	// slices >> slices don't have fix length. you can append values
+	var scores = []int{100, 50, 60}
+	scores[2] = 25
+	scores = append(scores, 40, 20)
+	// we can append elements or another slice using above function
 
-	nameFour := "yoshi" 
-	// this is a short hand of initializing a variable and you can use it only in the very first time.
-	// you can't use this way, outside a function
+	fmt.Println(scores, len(scores))
 
-	fmt.Println(nameFour)
+	// slice ranges
+	rangeOne := names[1:3]
+	rangeTwo := names[2:]
+	rangeThree := names[:]
+	rangeFour := names[:3]
 
+	fmt.Println(rangeOne, rangeTwo, rangeThree, rangeFour)
 
-
-
-
-
-	// ints ----------------------------------------------------------------	
-	var ageOne int = 20
-	var ageTwo = 30
-	ageThree := 40
-
-	fmt.Println(ageOne, ageTwo, ageThree)
-
-	// bits and memory
-	var numOne int8 = 25
-	var numTwo int8 = -128
-	var numThree uint16 = 256
-
-	fmt.Println(numOne, numTwo, numThree)
-
-	var scoreOne float32 = 25.45
-	var scoreTwo float64 = 2444444444444444444444444444444445.458777777
-	scoreThree := 1.5
-
-	fmt.Println(scoreOne, scoreTwo, scoreThree)
+	// you can add another value to range slice
+	rangeOne = append(rangeOne, "selva")
+	fmt.Println(rangeOne)
 
 }
