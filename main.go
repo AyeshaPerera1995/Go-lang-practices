@@ -3,49 +3,36 @@ package main
 import "fmt"
 
 func main(){
-	fmt.Println("Hello!")
+	age := 45
 
-	// strings ----------------------------------------------------------------
-	var nameOne string = "mario"
-	var nameTwo = "luigi"
-	var nameThree string // this has an empty string
+	fmt.Println(age <= 50)
+	fmt.Println(age >= 50)
+	fmt.Println(age == 45)
+	fmt.Println(age != 50)
 
-	fmt.Println(nameOne, nameTwo, nameThree)
-
-	nameOne = "peach"
-	nameThree = "bowser"
-
-	fmt.Println(nameOne, nameTwo, nameThree)
-
-	nameFour := "yoshi" 
-	// this is a short hand of initializing a variable and you can use it only in the very first time.
-	// you can't use this way, outside a function
-
-	fmt.Println(nameFour)
+	if age < 30 {
+		fmt.Println("age is less than 30")
+	} else if age < 40 {
+		fmt.Println("age is less than 40")
+	} else {
+		fmt.Println("age is not less than 45")
+	}
 
 
+	names := []string{"mario", "luigi", "yoshi", "peach", "bowser"}
 
+	for index, value := range names {
+		if index == 1 {
+			fmt.Println("continuing at pos", index)
+			continue
+		}
+		if index > 2 {
+			fmt.Println("breaking at pos", index)
+			break
+		}
 
+		fmt.Printf("the value at pos %v is %v \n", index, value)
+	}
 
-
-	// ints ----------------------------------------------------------------	
-	var ageOne int = 20
-	var ageTwo = 30
-	ageThree := 40
-
-	fmt.Println(ageOne, ageTwo, ageThree)
-
-	// bits and memory
-	var numOne int8 = 25
-	var numTwo int8 = -128
-	var numThree uint16 = 256
-
-	fmt.Println(numOne, numTwo, numThree)
-
-	var scoreOne float32 = 25.45
-	var scoreTwo float64 = 2444444444444444444444444444444445.458777777
-	scoreThree := 1.5
-
-	fmt.Println(scoreOne, scoreTwo, scoreThree)
 
 }
