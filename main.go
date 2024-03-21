@@ -1,51 +1,51 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
 
 func main(){
-	fmt.Println("Hello!")
 
-	// strings ----------------------------------------------------------------
-	var nameOne string = "mario"
-	var nameTwo = "luigi"
-	var nameThree string // this has an empty string
+// ---------------------- strings package ----------------------------------
+	greeting := "hello there friends!"
 
-	fmt.Println(nameOne, nameTwo, nameThree)
+	fmt.Println(strings.Contains(greeting, "llo the"))
 
-	nameOne = "peach"
-	nameThree = "bowser"
+	fmt.Println(strings.ReplaceAll(greeting, "hello", "hi"))
 
-	fmt.Println(nameOne, nameTwo, nameThree)
+	fmt.Println(strings.ToUpper(greeting))
 
-	nameFour := "yoshi" 
-	// this is a short hand of initializing a variable and you can use it only in the very first time.
-	// you can't use this way, outside a function
+	fmt.Println(strings.Index(greeting, "e"))
 
-	fmt.Println(nameFour)
+	fmt.Println(strings.Split(greeting, " "))
 
 
 
+	// ---------------------- sort package ----------------------------------
+	ages := []int{45, 20, 35, 30, 75, 60, 50, 25}
+
+	sort.Ints(ages) // sorted the values
+	fmt.Println(ages)
+
+	index := sort.SearchInts(ages, 30); 
+	// this function sorted the array and find the exact index of that value 
+	fmt.Println(index)
+
+	index2 := sort.SearchInts(ages, 28); 
+	// [20 25 28 30 35 45 50 60 75]
+	// if the number is not availble in the array, it resorted the array with new value and return the respective index
+	fmt.Println(index2)
 
 
+	names := []string{"yoshi", "mario", "peach", "bowser", "luigi"}
 
-	// ints ----------------------------------------------------------------	
-	var ageOne int = 20
-	var ageTwo = 30
-	ageThree := 40
+	sort.Strings(names)
+	fmt.Println(names)
 
-	fmt.Println(ageOne, ageTwo, ageThree)
+	fmt.Println(sort.SearchStrings(names, "peach"))
+	
 
-	// bits and memory
-	var numOne int8 = 25
-	var numTwo int8 = -128
-	var numThree uint16 = 256
-
-	fmt.Println(numOne, numTwo, numThree)
-
-	var scoreOne float32 = 25.45
-	var scoreTwo float64 = 2444444444444444444444444444444445.458777777
-	scoreThree := 1.5
-
-	fmt.Println(scoreOne, scoreTwo, scoreThree)
 
 }
