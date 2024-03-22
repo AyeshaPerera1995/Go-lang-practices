@@ -2,50 +2,63 @@ package main
 
 import "fmt"
 
-func main(){
-	fmt.Println("Hello!")
+// Go is a pass-by-value language. that means,
+// Go makes "copies" of values when passed into functions
 
-	// strings ----------------------------------------------------------------
-	var nameOne string = "mario"
-	var nameTwo = "luigi"
-	var nameThree string // this has an empty string
-
-	fmt.Println(nameOne, nameTwo, nameThree)
-
-	nameOne = "peach"
-	nameThree = "bowser"
-
-	fmt.Println(nameOne, nameTwo, nameThree)
-
-	nameFour := "yoshi" 
-	// this is a short hand of initializing a variable and you can use it only in the very first time.
-	// you can't use this way, outside a function
-
-	fmt.Println(nameFour)
+	// 	Group A						Group B
+	// (Non-Pointer Values)		 (Pointer Wrapper Value)
+	//	----------				----------------
+	//	strings						slices
+	//	ints						maps
+	//	floats						functions
+	// 	booleans
+	//	arrays
+	//	structs
 
 
+func updateName(x string){
+	x = "wedge"
+}
+
+func updateLabel(y string) string{
+	y = "pending"
+	return y
+}
+
+func updateMenu(y map[string]float64){
+	y["coffee"] = 2.99
+	y["pie"] = 4.00
+}
+
+
+func main() {
+
+	// Group A types -> strings, ints, floats, booleans, arrays, structs
+	name := "tifa"
+	updateName(name) // pass a copy of name variable.
+	// everytime when we pass a value to a function, Go makes a copy of that value and pass it. 
+	// So the original value never changed.
+	fmt.Println(name)
+
+
+	label := "start"
+	label = updateLabel(label)
+	fmt.Println(label)
 
 
 
 
-	// ints ----------------------------------------------------------------	
-	var ageOne int = 20
-	var ageTwo = 30
-	ageThree := 40
+	// Group B types -> slices, maps, functions
+	menu := map[string]float64 {
+		"pie": 5.95,
+		"ice cream": 3.99,
+	}
 
-	fmt.Println(ageOne, ageTwo, ageThree)
+	updateMenu(menu)
+	fmt.Println(menu)
 
-	// bits and memory
-	var numOne int8 = 25
-	var numTwo int8 = -128
-	var numThree uint16 = 256
 
-	fmt.Println(numOne, numTwo, numThree)
 
-	var scoreOne float32 = 25.45
-	var scoreTwo float64 = 2444444444444444444444444444444445.458777777
-	scoreThree := 1.5
 
-	fmt.Println(scoreOne, scoreTwo, scoreThree)
 
 }
