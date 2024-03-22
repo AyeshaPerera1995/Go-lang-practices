@@ -1,51 +1,39 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
-func main(){
-	fmt.Println("Hello!")
+func sayGreeting(n string) {
+	fmt.Printf("Good morning %v \n", n)
+}
 
-	// strings ----------------------------------------------------------------
-	var nameOne string = "mario"
-	var nameTwo = "luigi"
-	var nameThree string // this has an empty string
+func sayBye(n string) {
+	fmt.Printf("Goodbye %v \n", n)
+}
 
-	fmt.Println(nameOne, nameTwo, nameThree)
+func cycleNames(n []string, f func(string)) {
+	for _, v := range n {
+		f(v)
+	}
+}
 
-	nameOne = "peach"
-	nameThree = "bowser"
+func circleArea(r float64) float64 {
+	return math.Pi * r * r
+}
 
-	fmt.Println(nameOne, nameTwo, nameThree)
+func main() {
+	// sayGreeting("mario")
+	// sayBye("ayesha")
 
-	nameFour := "yoshi" 
-	// this is a short hand of initializing a variable and you can use it only in the very first time.
-	// you can't use this way, outside a function
+	// cycleNames([]string{"cloud", "tifa", "barret"}, sayGreeting)
+	// cycleNames([]string{"cloud", "tifa", "barret"}, sayBye)
 
-	fmt.Println(nameFour)
+	a1 := circleArea(7)
+	a2 := circleArea(10.5)
 
-
-
-
-
-
-	// ints ----------------------------------------------------------------	
-	var ageOne int = 20
-	var ageTwo = 30
-	ageThree := 40
-
-	fmt.Println(ageOne, ageTwo, ageThree)
-
-	// bits and memory
-	var numOne int8 = 25
-	var numTwo int8 = -128
-	var numThree uint16 = 256
-
-	fmt.Println(numOne, numTwo, numThree)
-
-	var scoreOne float32 = 25.45
-	var scoreTwo float64 = 2444444444444444444444444444444445.458777777
-	scoreThree := 1.5
-
-	fmt.Println(scoreOne, scoreTwo, scoreThree)
+	fmt.Println(a1, a2)
+	fmt.Printf("circle 1 is %0.3f and circle 2 is %0.2f \n", a1, a2)
 
 }
