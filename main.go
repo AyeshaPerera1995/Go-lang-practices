@@ -1,51 +1,60 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
-func main(){
-	fmt.Println("Hello!")
+// shape interface
+type shape interface {
+	area() float64
+	circumf() float64
+}
 
-	// strings ----------------------------------------------------------------
-	var nameOne string = "mario"
-	var nameTwo = "luigi"
-	var nameThree string // this has an empty string
+type square struct {
+	length float64
+}
 
-	fmt.Println(nameOne, nameTwo, nameThree)
+type circle struct {
+	radius float64
+}
 
-	nameOne = "peach"
-	nameThree = "bowser"
+// square methods
+func (s square) area() float64 {
+	return s.length * s.length
+}
 
-	fmt.Println(nameOne, nameTwo, nameThree)
-
-	nameFour := "yoshi" 
-	// this is a short hand of initializing a variable and you can use it only in the very first time.
-	// you can't use this way, outside a function
-
-	fmt.Println(nameFour)
-
-
-
-
+func (s square) circumf() float64 {
+	return s.length * 4
+}
 
 
-	// ints ----------------------------------------------------------------	
-	var ageOne int = 20
-	var ageTwo = 30
-	ageThree := 40
+// circle methods
+func (c circle) area() float64 {
+	return math.Pi * c.radius * c.radius
+}
 
-	fmt.Println(ageOne, ageTwo, ageThree)
+func (c circle) circumf() float64 {
+	return 2 * math.Pi * c.radius
+}
 
-	// bits and memory
-	var numOne int8 = 25
-	var numTwo int8 = -128
-	var numThree uint16 = 256
+// common func
+func printShapeInfo(shape shape){
+	fmt.Printf("area of the %T is: %0.2f \n", shape, shape.area())
+	fmt.Printf("circumf of the %T is: %0.2f \n", shape, shape.circumf())
+}
 
-	fmt.Println(numOne, numTwo, numThree)
+func main() {
 
-	var scoreOne float32 = 25.45
-	var scoreTwo float64 = 2444444444444444444444444444444445.458777777
-	scoreThree := 1.5
+	shapes := []shape { // this slice is a set of circle and square strcuts
+		square{length: 4},
+		circle{radius: 5},
+		circle{radius: 7},
+	}
 
-	fmt.Println(scoreOne, scoreTwo, scoreThree)
+	for _, shape := range shapes {
+		printShapeInfo(shape)
+		fmt.Println("---")
+	}
 
 }
