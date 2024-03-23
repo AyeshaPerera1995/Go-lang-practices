@@ -47,7 +47,8 @@ func propmtOptions(b bill) {
 		propmtOptions(b)
 
 	case "s":
-		fmt.Println("you choose to save the bill : ", b)
+		b.save()
+		fmt.Println("you saved the file - ", b.name)
 
 	case "t":
 		tip, _ := getInput("Enter tip amount ($): ", reader)

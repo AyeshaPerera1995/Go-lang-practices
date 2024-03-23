@@ -1,0 +1,5 @@
+Bill breakdown: 
+cake:                     ...$2.56 
+peanut:                   ...$3.44 
+tip:                      ...$5.00 
+total:                    ...$11.00
